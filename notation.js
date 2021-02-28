@@ -817,19 +817,30 @@ function createPairs(arr) {
 
 /*
 7. Compute the sequence
+T = c + n + c + c + c + n + c
+T = 5c + 2n
+T = 2n
+T = O(n) --> linear time complexity
+
+ In this function, i starts at 1 and increments until it its less than or equal to the input 
+ number. The value is then checked for truthiness based on a condition and a value is pushed to 
+ an array. The time is takes for this program to run is directly proportional to the size of the 
+ input number because each value must be checked. 
+
  */
 function compute(num) {
-  let result = [];
-  for (let i = 1; i <= num; i++) {
-    if (i === 1) {
-      result.push(0);
-    } else if (i === 2) {
-      result.push(1);
+  let result = [];  /* O(1) --> setting an empty array is independent of input size */
+  for (let i = 1; i <= num; i++) {  /* O(n) --> incrementing depends upon the size of the number, the size of the input */
+    if (i === 1) {  /* O(1) --> comparison, constant time */
+      result.push(0);  /* O(1) --> push operation constant time */
+    } else if (i === 2) {  /* O(1) --> comparison, constant time */
+      result.push(1);  /* O(1) --> push operation constant time */
     } else {
-      result.push(result[i - 2] + result[i - 3]);
+      result.push(result[i - 2] + result[i - 3]);  /* O(n) --> accessing an array and pushing to an array are alll constant time, 
+      but the operations perform n times depending upon the size of the input*/
     }
   }
-  return result;
+  return result;  /* O(1) --> returning a value, constant time */
 }
 
 /*
