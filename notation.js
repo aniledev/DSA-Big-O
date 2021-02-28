@@ -892,24 +892,38 @@ function efficientSearch(array, item) {
 }
 
 /*
-9. Random element. 
+9. Random element. Regardless of the number of inputs, accessing an array has a constant time complexity
  */
 function findRandomElement(arr) {
-  return arr[Math.floor(Math.random() * arr.length)];
+  return arr[Math.floor(Math.random() * arr.length)]; /* O(1) */
 }
 
 /*
 10. What Am I? What does the following algorithm do? What is the Big O of the following 
 algorithm? Explain your answer
+
+
+T = c + c + n + c + c
+T = 4c + n
+T = n
+T = O(n)
+
+Linear time complexity because the time is takes it to complete the for loop is dependent upon 
+the the size of the inputs
+
  */
 function isWhat(n) {
   if (n < 2 || n % 1 !== 0) {
-    return false;
+    /* O(1) --> comparison operator takes a constant time */
+    return false; /* O(1) --> returning a value, constant time */
   }
   for (let i = 2; i < n; ++i) {
-    if (n % i === 0) return false;
+    /* O(n) --> time  to loop is dependent upon the size of the input */
+    if (n % i === 0)
+      return false; /* O(1) --> returning a value, constant time; O(1) --> comparison operation 
+    must be performed n times depending upon the size of the input */
   }
-  return true;
+  return true; /* O(1) --> returning a value, constant time */
 }
 
 /*
