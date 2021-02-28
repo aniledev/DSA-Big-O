@@ -749,12 +749,24 @@ function areYouHere(arr1, arr2) {
 
 /*
 4. Doubler. What is the Big O of the following algorithm? Explain your answer
+T = n + n(c) + c
+T = n(c)
+T = n
+T = O(n)
+
+Linear time complexity, as the length of the array grows, each value in the array needs to be doubled, meaning that 
+the time it takes to run the proram is directly proportional to the size of the inputs.
  */
 function doubleArrayValues(array) {
   for (let i = 0; i < array.length; i++) {
-    array[i] *= 2;
+    /* O(n) --> looping through an array using incrementing the index, 
+    the larger the parameter, the more time it will take to loop */
+    array[
+      i
+    ] *= 2; /* O(1) --> accessing an array is always a constant time complexity; multiplying by 2 is 
+    also a constant time complexity; each of these operations happen n times as we loop through the array*/
   }
-  return array;
+  return array; /* O(1) --> returning a value is constant time complexity*/
 }
 
 /*
