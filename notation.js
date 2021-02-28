@@ -770,12 +770,25 @@ function doubleArrayValues(array) {
 }
 
 /*
+
 5. Naive search. What is the Big O of the following algorithm? Explain your answer
+T= n + c + c
+T = n + 2c
+T = n
+
+Best case --> item is at the beginning of the array, O(1) time complexity
+Average case --> item is in the middle of the array, O(n) time complexity, as the inputs increase, the 
+program will take longer to run
+Worst case --> O(n), item is at the very end of the array, the time would be directly proportional to 
+the input size
+
  */
 function naiveSearch(array, item) {
   for (let i = 0; i < array.length; i++) {
+    /* O(1)*n --> n, looping through an array, direct proportion */
     if (array[i] === item) {
-      return i;
+      /* O(1) --> constant time complexity */
+      return i; /* O(1) --> constant time complexity, returning a singular value */
     }
   }
 }
