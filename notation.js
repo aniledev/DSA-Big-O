@@ -705,26 +705,46 @@ size of the input
 
  */
 function isEven(value) {
-  if (value % 2 === 0) { /* O(1) --> regardless of the input, the time it takes to check the truthiness 
-    of this operation would remain constant */ 
-    return true; /* O(1) --> regardless of the input, the time it takes to return a value would remain constant */ 
+  if (value % 2 === 0) {
+    /* O(1) --> regardless of the input, the time it takes to check the truthiness 
+    of this operation would remain constant */
+    return true; /* O(1) --> regardless of the input, the time it takes to return a value would remain constant */
   } else {
-    return false; /* O(1) --> regardless of the input, the time it takes to return a value would remain constant  */ 
+    return false; /* O(1) --> regardless of the input, the time it takes to return a value would remain constant  */
   }
 }
 
 /*
 3. Are you here? What is the Big O of the following algorithm? Explain your answer
+T = n + c + n^2 + c + c + c + c
+T = n + 5c + n^2
+T = n^2
+T = O(n^2)
+
  */
+
 function areYouHere(arr1, arr2) {
   for (let i = 0; i < arr1.length; i++) {
-    const el1 = arr1[i];
+    /* O(n) --> i is incrementing each time the loop runs, this means that with 
+    a larger input, the time it takes to loop grows in a directly proportional relation*/
+    const el1 =
+      arr1[
+        i
+      ]; /* O(1) --> accessing an array is a constant time complexity, the time it takes is independent 
+    of the size of the array/inputs */
     for (let j = 0; j < arr2.length; j++) {
-      const el2 = arr2[j];
-      if (el1 === el2) return true;
+      /*O(n^2) --> linear time complexity, however, this loops n*n times because 
+      the inner loop executing is dependent on the outer loop executing */
+      const el2 =
+        arr2[
+          j
+        ]; /* O(1) --> accessing an array is a constant time complexity, the time it takes is independent 
+      of the size of the array/inputs */
+      if (el1 === el2)
+        return true; /* O(1) --> comparison of equality and returning a value is a constant time complexity */
     }
   }
-  return false;
+  return false; /* O(1) --> returning a value is a constant time complexity */
 }
 
 /*
