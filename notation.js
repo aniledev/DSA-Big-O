@@ -794,12 +794,23 @@ function naiveSearch(array, item) {
 }
 
 /*
-6. Creating pairs.
+6. Creating pairs. Quadratic time because the inner loop must run n times as it dependent upon 
+the outer loop running n times as well
+
+T = n + n^2 + c
+T = n^2
+T = O(n^2)
  */
 function createPairs(arr) {
   for (let i = 0; i < arr.length; i++) {
+    /* O(n) --> directly proportional relation*/
     for (let j = i + 1; j < arr.length; j++) {
-      console.log(arr[i] + ", " + arr[j]);
+      /* O(n^2 --> for each time the outer loop 
+      runs n times, the inner loop also needs to run n times) */
+      console.log(
+        arr[i] + ", " + arr[j]
+      ); /* O(1) --> all the operations inside of the 
+      console log take a a constant time to run */
     }
   }
 }
