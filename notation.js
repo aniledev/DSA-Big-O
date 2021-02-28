@@ -676,29 +676,45 @@ you want to know if anyone out of the 15 people have the same breed as your dog.
 stand up and yell out, who here has a golden retriever and would like to be a playdate 
 for my golden. Someone yells - "I do, be happy to bring him over"
 
+Constant time complexity O(1) — no matter how many people are in the room, you only have 
+to perform a singular action. The time it takes to get a result independent of the size of 
+the inputs, the size of the crowd in the room.
+
 1.2) Determine the Big O for the following algorithm: You are sitting in a room with 15 
 people. You want to find a playmate for your dog who is of the same breed. So you want 
 to know if anyone out of the 15 people have the same breed as your dog. You start with 
 the first person and ask him if he has a golden retriever. He says no, then you ask the 
 next person, and the next, and the next until you find someone who has a golden or there 
 is no one else to ask.
+
+Linear time complexity O(n) — the average case is that the person who has a dog is somewhere 
+in the middle of the line/array. This would mean that the time it takes to find a similar dog 
+breed would depend on the size on the size of the input, the size of the line/crowd. There would 
+be a directly proportional relationship. In the worst case, the time complexity would still be O(n) 
+because the owner with a similar dog breed would be at the very end of the line. In the best 
+case, with the very owner having a similar dog breed, this would be a O(1) time complexity.
+
  */
 
 /*
 2. Even or odd. What is the Big O of the following algorithm? Explain your answer
 
+O(1) time complexity because the time it takes to run the program is completely independent of the 
+size of the input
+
 
  */
 function isEven(value) {
-  if (value % 2 === 0) {
-    return true;
+  if (value % 2 === 0) { /* O(1) --> regardless of the input, the time it takes to check the truthiness 
+    of this operation would remain constant */ 
+    return true; /* O(1) --> regardless of the input, the time it takes to return a value would remain constant */ 
   } else {
-    return false;
+    return false; /* O(1) --> regardless of the input, the time it takes to return a value would remain constant  */ 
   }
 }
 
 /*
-Are you here? What is the Big O of the following algorithm? Explain your answer
+3. Are you here? What is the Big O of the following algorithm? Explain your answer
  */
 function areYouHere(arr1, arr2) {
   for (let i = 0; i < arr1.length; i++) {
