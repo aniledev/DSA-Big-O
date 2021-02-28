@@ -829,44 +829,66 @@ T = O(n) --> linear time complexity
 
  */
 function compute(num) {
-  let result = [];  /* O(1) --> setting an empty array is independent of input size */
-  for (let i = 1; i <= num; i++) {  /* O(n) --> incrementing depends upon the size of the number, the size of the input */
-    if (i === 1) {  /* O(1) --> comparison, constant time */
-      result.push(0);  /* O(1) --> push operation constant time */
-    } else if (i === 2) {  /* O(1) --> comparison, constant time */
-      result.push(1);  /* O(1) --> push operation constant time */
+  let result = []; /* O(1) --> setting an empty array is independent of input size */
+  for (let i = 1; i <= num; i++) {
+    /* O(n) --> incrementing depends upon the size of the number, the size of the input */
+    if (i === 1) {
+      /* O(1) --> comparison, constant time */
+      result.push(0); /* O(1) --> push operation constant time */
+    } else if (i === 2) {
+      /* O(1) --> comparison, constant time */
+      result.push(1); /* O(1) --> push operation constant time */
     } else {
-      result.push(result[i - 2] + result[i - 3]);  /* O(n) --> accessing an array and pushing to an array are alll constant time, 
+      result.push(
+        result[i - 2] + result[i - 3]
+      ); /* O(n) --> accessing an array and pushing to an array are alll constant time, 
       but the operations perform n times depending upon the size of the input*/
     }
   }
-  return result;  /* O(1) --> returning a value, constant time */
+  return result; /* O(1) --> returning a value, constant time */
 }
 
 /*
 8. An efficient search. In this example, we return to the problem of searching using a more 
 sophisticated approach than in naive search, above. Assume that the input array is always 
 sorted. What is the Big O of the following algorithm? Explain your answer
+
+T = 11c + 2n
+T = O(n) 
+
+the time it takes to search through the array, is directly proportional to the size of the input 
+array. However in this example, there is a divide and conquer method being used to efficiently 
+search the array rather than accessing each indexed value.
+
+This means that the time complexity would actually be logarithmic/linearithmic time complexity
  */
 function efficientSearch(array, item) {
-  let minIndex = 0;
-  let maxIndex = array.length - 1;
-  let currentIndex;
-  let currentElement;
+  let minIndex = 0; /* O(1) --> initializing a variable */
+  let maxIndex = array.length - 1; /* /* O(1) --> initializing a variable */
+  let currentIndex; /* O(1) --> initializing a variable */
+  let currentElement; /* O(1) --> initializing a variable */
 
   while (minIndex <= maxIndex) {
-    currentIndex = Math.floor((minIndex + maxIndex) / 2);
-    currentElement = array[currentIndex];
+    /* O(n) --> looping through array, time direct prop. to the input size */
+    currentIndex = Math.floor(
+      (minIndex + maxIndex) / 2
+    ); /* O(1) --> initializing a variable n times depending upon the input size*/
+    currentElement =
+      array[
+        currentIndex
+      ]; /* O(n) --> accessing an array n times depending upon the input size */
 
     if (currentElement < item) {
-      minIndex = currentIndex + 1;
+      /* comparison operation O(1)*/
+      minIndex = currentIndex + 1; /* O(1) --> initializing a variable */
     } else if (currentElement > item) {
-      maxIndex = currentIndex - 1;
+      /* comparison operation O(1)*/
+      maxIndex = currentIndex - 1; /* O(1) --> initializing a variable */
     } else {
-      return currentIndex;
+      return currentIndex; /* O(1) --> returning a value, constant time */
     }
   }
-  return -1;
+  return -1; /* O(1) --> returning a value, constant time */
 }
 
 /*
